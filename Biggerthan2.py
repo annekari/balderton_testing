@@ -1,28 +1,27 @@
-# 
-# hours = raw_input('Enter Hours :')
-# rate = raw_input('Enter Rate :')
-# pay = -1.0
+
+
+
 
 def validate_numbers(hours, rate):
-   validation = False 
-   return True
-    # try:
-#     hours = float(hours)
-#     rate = float(rate)
-#     pay = hours*rate
-#     valiate = True
-#     except:
-#     hours = raw_input('Enter Hours as a number :')
-#     rate = raw_input('Enter Rate as a number :')
-#     hours = float(hours)
-      
-# if (hours > 0 and rate > 0 ) :
-#         validate = True 
-#         print ' Nice work, your hours and rate is stored as :', hours, rate
-# else:
-#          print ' hours and rate is not put in as a number'
-#     
-    # return validation
+   validation = False
+
+   try:
+       hours = float(hours)
+       rate = float(rate)
+       pay = hours*rate
+       valiate = True
+
+   except:
+       hours = raw_input('Enter Hours as a number :')
+       rate = raw_input('Enter Rate as a number :')
+       hours = float(hours)
+
+       if (hours > 0 and rate > 0 ) :
+           validate = True
+           print ' Nice work, your hours and rate is stored as :', hours, rate
+       else:
+           print ' hours and rate is not put in as a number'
+   return validation
 
 def overtime(hours, rate) :
     overtime = 0
@@ -50,31 +49,21 @@ def computepay (hours, rate) :
     return pay
 
 while True:
-    line = raw_input('>')
-    print 'line [0]: ', line[0]
-    if(line[0]=='#'):
-        continue
+    print "Let's compute your pay "
+
+    hours = raw_input('Enter Hours :')
+    rate = raw_input('Enter Rate :')
+    pay = -1.0
+
+    print 'Pay :', computepay(hours, rate)
+
+    line = raw_input('Write Done if you want to quit and Con if you want to run the script again : ')
+
+    print "Let's quit: ", line
+
     if(line=='Done'):
         break
-    print "blablabla", line
-    
-print 'Done'
- 
 
-# print 'Pay :', computepay(hours, rate)
-
-# x=5
-# if x > 2:
-# 	print ' Bigger than 2'
-# 	print ' still bigger '
-# print 'Done with 2'
-# 
-# for i in range(5) :
-# 	print i
-# 	if i > 2 :
-# 		print ' Bigger than 2 '
-# 	print ' Done with i ', i
-# print 'All Done' 
 
 
 
