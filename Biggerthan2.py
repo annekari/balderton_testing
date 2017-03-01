@@ -3,13 +3,13 @@
 
 
 def validate_numbers(hours, rate):
-   validation = False
+   validate = False
 
    try:
        hours = float(hours)
        rate = float(rate)
        pay = hours*rate
-       valiate = True
+       validate = True
 
    except:
        hours = raw_input('Enter Hours as a number :')
@@ -18,10 +18,10 @@ def validate_numbers(hours, rate):
 
        if (hours > 0 and rate > 0 ) :
            validate = True
-           print ' Nice work, your hours and rate is stored as :', hours, rate
+           print "Nice work, your hours and rate is stored as :", hours, rate
        else:
            print ' hours and rate is not put in as a number'
-   return validation
+   return validate
 
 def overtime(hours, rate) :
     overtime = 0
@@ -40,26 +40,31 @@ def overtime(hours, rate) :
 
 def computepay (hours, rate) :
     pay = 0
-    if (hours >= 40): 
+    validate = validate_numbers(hours,rate)
+
+    if (hours >= 40):
         pay = 40 * float(rate)
-        pay = pay + float(overtime (hours,rate))
+        pay = pay + float(overtime(hours,rate))
     else:
         pay = hours * rate
     
     return pay
 
 while True:
+
     print "Let's compute your pay "
 
     hours = raw_input('Enter Hours :')
     rate = raw_input('Enter Rate :')
     pay = -1.0
 
-    print 'Pay :', computepay(hours, rate)
+    if(validate_numbers(hours,rate)):
+        print "Pay :", computepay(hours, rate)
+        line = raw_input('Write Done if you want to quit and Con if you want to run the script again : ')
 
-    line = raw_input('Write Done if you want to quit and Con if you want to run the script again : ')
-
-    print "Let's quit: ", line
+        print "Let's quit: ", line
+    else:
+        print " Enter Hours and Rate as a number"
 
     if(line=='Done'):
         break
